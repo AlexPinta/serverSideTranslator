@@ -1,0 +1,6 @@
+rootProject.name = 'serverSideTranslator'
+include "elasticSearchMicroService"
+include "redisMicroService"
+include "translatorMicroService"
+
+
