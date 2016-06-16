@@ -5,6 +5,8 @@ ext {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-elasticsearch:${spring_boot_version}")
-    compile("org.codehaus.jackson:jackson-mapper-asl:${jackson_version}")
+//    compile("org.codehaus.jackson:jackson-mapper-asl:${jackson_version}")
+    compile("org.springframework.boot:spring-boot-starter-batch:${spring_boot_version}")
+
 
 }

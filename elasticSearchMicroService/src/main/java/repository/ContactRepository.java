@@ -1,11 +1,8 @@
 package repository;
-import model.UserContactData;
-import org.springframework.data.elasticsearch.annotations.Query;
+import model.contactDetails.UserContact;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
 import java.util.List;
 
-public interface ContactRepository extends ElasticsearchRepository { //<UserContactData,String> {
-//    @Query
-    List getStreamData();
+public interface ContactRepository extends ElasticsearchRepository <UserContact,String> {
 }
