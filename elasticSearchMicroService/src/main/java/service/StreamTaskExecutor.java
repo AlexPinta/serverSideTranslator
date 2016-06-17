@@ -1,4 +1,4 @@
-package core;
+package service;
 
 public interface StreamTaskExecutor {
     void retrieveStreamData();

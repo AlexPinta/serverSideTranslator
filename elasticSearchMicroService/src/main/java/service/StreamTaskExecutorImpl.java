@@ -1,4 +1,4 @@
-package core;
+package service;
 
 import batch.ContactItemReader;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.data.elasticsearch.core.EntityMapper;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.io.IOException;
 
@@ -22,12 +23,15 @@ public class ContactEntityMapper implements EntityMapper {
 
     private ObjectMapper objectMapper;
 
-    public ContactEntityMapper() {
+    public ContactEntityMapper() {}
+
+    @PostConstruct
+    private void beanInit() {
         objectMapper = new ObjectMapper();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
         objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
         SimpleModule module = new SimpleModule();
-        module.addSerializer(jsonSerializer);
+        module.addSerializer(UserContact.class, jsonSerializer);
         module.addDeserializer(UserContact.class, jsonDeserializer);
         objectMapper.registerModule(module);
     }

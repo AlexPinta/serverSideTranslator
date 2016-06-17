@@ -1,6 +1,6 @@
 package controller;
 
-import core.StreamTaskExecutor;
+import service.StreamTaskExecutor;
 import model.contactDetails.UserContact;
 import org.elasticsearch.common.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;

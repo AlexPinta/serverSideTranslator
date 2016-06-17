@@ -25,7 +25,6 @@ public class ContactItemReader extends AbstractPaginatedDataItemReader<UserConta
     private ElasticsearchTemplate elasticsearchTemplate;
     @Value("${batch.size}")
     int batchSize;
-    @Value("elasticsearch.resource.location}")
 
     private Pageable contactPageable;
 
