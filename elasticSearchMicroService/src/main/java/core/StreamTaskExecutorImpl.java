@@ -45,4 +45,9 @@ public class StreamTaskExecutorImpl implements StreamTaskExecutor, ApplicationLi
     public void setStreamEnable(boolean streamEnable) {
         this.streamEnable = streamEnable;
     }
+
+    @Override
+    public boolean isStreamEnable() {
+        return streamEnable;
+    }
 }

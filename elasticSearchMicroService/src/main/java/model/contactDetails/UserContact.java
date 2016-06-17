@@ -1,8 +1,10 @@
 package model.contactDetails;
 
 import lombok.Data;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 //@Data
+@Document(indexName = "contactDetails", type = "article")
 public class UserContact {
     private Long id;
     private String gender;

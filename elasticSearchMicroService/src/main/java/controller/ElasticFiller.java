@@ -25,16 +25,21 @@ public class ElasticFiller {
         long startPoint = startTime.getMillis();
         if (startPoint > System.currentTimeMillis()) {
             startTaskExecutionService(startPoint);
-            return new ResponseEntity(CONFIRM_RESPONSE, HttpStatus.OK);
+            return new ResponseEntity<String>(CONFIRM_RESPONSE, HttpStatus.OK);
         } else {
-            return new ResponseEntity(REJECT_RESPONSE, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<String>(REJECT_RESPONSE, HttpStatus.BAD_REQUEST);
         }
     }
 
     @RequestMapping(value = "/contacts/streaming/{streamSize}", method = RequestMethod.GET)
-    @ResponseBody
-    public List<UserContact> getStreamData(@PathVariable int streamSize) {
-        return contactBroker.getContacts(responseStreamSize);
+    public ResponseEntity<List<UserContact>> getStreamData(@PathVariable int streamSize) {
+        ResponseEntity<List<UserContact>> responseEntity;
+        if (!streamTaskExecutor.isStreamEnable()) {
+            responseEntity = new ResponseEntity<List<UserContact>>(HttpStatus.SERVICE_UNAVAILABLE);
+        } else {
+            responseEntity = new ResponseEntity<List<UserContact>>(contactBroker.getContacts(responseStreamSize), HttpStatus.OK);
+        }
+        return responseEntity;
     }
 
 
