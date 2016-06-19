@@ -13,7 +13,7 @@ import java.util.List;
 public class RedisFiller {
 
     public void putToRedis() {
-        ContractRedisRepository repository = new ContractRedisRepository();
+        ContactRedisRepository repository = new ContactRedisRepository();
         List<UserAccount> userAccounts = new ArrayList<>();
         try {
             userAccounts = repository.getStreamData();

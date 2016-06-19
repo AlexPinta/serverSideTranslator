@@ -4,7 +4,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import repository.ContractRedisRepository;
+import repository.ContactRedisRepository;
 
 /**
  * Spring Boot main bootstrap.Application
@@ -17,7 +17,7 @@ public class Application {
     public static void main( String[] args ) throws Exception {
         SpringApplication.run(Application.class, args);
 
-        ContractRedisRepository repository = new ContractRedisRepository();
+        ContactRedisRepository repository = new ContactRedisRepository();
         repository.getStreamData();
     }
 }

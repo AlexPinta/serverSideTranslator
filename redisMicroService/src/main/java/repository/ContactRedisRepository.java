@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * Created by Administrator on 6/16/2016.
  */
-public class ContractRedisRepository {
+public class ContactRedisRepository {
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
 
